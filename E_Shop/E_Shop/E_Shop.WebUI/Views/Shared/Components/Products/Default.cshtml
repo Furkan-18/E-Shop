@@ -1,0 +1,41 @@
+﻿@model List<ProductViewModel>
+
+<div class="row mt-7  ">
+
+
+    @if (Model.Any())
+    {
+        @foreach (var products in Model)
+        {
+            <div class="col-sm-12 col-md-5 col-lg-3 mb-2  ">
+                <div class="card shadow-sm">
+                    <a asp-controller="Product" asp-action="Detail" asp-route-id="@products.Id">
+                        <img width="100%" height="200" src="~/images/products/@products.ImagePath" />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@products.Name</h5>
+                        <div style="color:black">
+                            @products.UnitPrice TL
+                        </div>
+                        <a href="@Url.Action("Detail", "Product", new { id = products.Id })" style=" color:white" class="btn btn-block btn-dark mt-2">Detay</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+
+    }
+    else
+    {
+
+        <div class="alert alert-danger">
+
+            Bu kategoride ürün yok!
+        </div>
+    }
+
+
+</div>

@@ -1,0 +1,14 @@
+﻿
+@model int
+
+
+<partial name="_BannerPartial">
+
+    <div class="row mt-5 mb-5">
+
+       
+            @await Component.InvokeAsync("Products",new  { categoryID=ViewBag.categoryID })
+
+      
+
+    </div>
